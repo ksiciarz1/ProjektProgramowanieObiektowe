@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektProgramowanieObiektowe"
         mc:Ignorable="d"
-        Title="LoginFormWindow" d:DesignHeight="161.729" d:DesignWidth="443.846" Width="440" Height="160">
-    <Grid>
-        <Button x:Name="CoolButton" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Height="48" Width="128"/>
+        Title="Liblary Login Window" d:DesignHeight="161.729" Width="407" Height="160" WindowStyle="ToolWindow">
+    <Grid HorizontalAlignment="Center" Width="407">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="233*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LoginButton_CLick" Height="30" Width="140" Grid.Row="1"/>
+        <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Grid.Column="1" Height="18" Margin="0,36,0,0"/>
+        <TextBox x:Name="LoginTextBox" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="18" Margin="0,-36,0,0"/>
+        <Button x:Name="ForgotButton" Grid.Column="1" Content="Forgot Password" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="140" Height="30"/>
+        <Label Content="Login: " HorizontalAlignment="Center" Margin="0,-36,0,0" VerticalAlignment="Center" Width="120"/>
+        <Label Content="Password: " HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Center" Width="120"/>
     </Grid>
 </Window>

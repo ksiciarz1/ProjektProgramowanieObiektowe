@@ -28,10 +28,8 @@ namespace ProjektProgramowanieObiektowe
         /// <summary>
         /// Used for loging in to access MainWindow
         /// </summary>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_CLick(object sender, RoutedEventArgs e)
         {
-            CoolButton.Content = i;
-            i++;
 
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
