@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:ProjektProgramowanieObiektowe"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Visibility="Visible">
-    <Grid Visibility="Hidden">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="271*"/>
+            <ColumnDefinition Width="529*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="Lisbox1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="39" Height="399" Grid.Column="1" Margin="10,0,0,0" SelectionChanged="Lisbox_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}">
+        </ListBox>
+        <ListBox x:Name="Listbox2" Grid.Column="1" Margin="62,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="399" Width="203" SelectionChanged="Lisbox_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}" />
+        <ListBox x:Name="Listbox3" Grid.Column="1" Margin="270,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="400" Width="249" SelectionChanged="Lisbox_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}" />
     </Grid>
 </Window>

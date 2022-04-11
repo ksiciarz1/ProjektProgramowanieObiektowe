@@ -52,7 +52,11 @@ namespace ProjektProgramowanieObiektowe
         // TODO: implement this
         private void ForgotButton_Click(object sender, RoutedEventArgs e)
         {
+            // HACK: Delete this later
 
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
