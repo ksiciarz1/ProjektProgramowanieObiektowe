@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProjektProgramowanieObiektowe
 {
     /// <summary>
-    /// Logika interakcji dla klasy LoginFormWindow.xaml
+    /// Logic for LoginWindow
     /// </summary>
     public partial class LoginFormWindow : Window
     {
@@ -27,18 +17,42 @@ namespace ProjektProgramowanieObiektowe
 
         /// <summary>
         /// Used for loging in to access MainWindow
+        /// Is checking LoginTextBox and PasswodTextBox then comparing with liblarians in database
         /// </summary>
         private void LoginButton_CLick(object sender, RoutedEventArgs e)
         {
+            string loginText = LoginTextBox.Text;
+            string passwordText = PasswordTextBox.Password;
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            LibraryContext dataBase = new LibraryContext();
+            Liblarian user = null;
+
+            try
+            {
+                // Searching for user with that login and password in database
+                user = dataBase.Librarians.Single(liblarian => liblarian.Login == loginText && liblarian.Password == passwordText);
+            }
+            catch (Exception ex)
+            {
+                // sending message if the user wasn't found
+                string message = ex.Message == "Sequence contains no elements" ? "No user with that login and password was found." : ex.Message;
+                MessageBox.Show(message);
+            }
+
+            // Sucessfully log in
+            // Opening MainWindow and closing this one
+            if (user != null)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
         }
 
+        // TODO: implement this
         private void ForgotButton_Click(object sender, RoutedEventArgs e)
         {
-            ForgotButton.Content = new LibraryContext().TestRead();
+
         }
     }
 }

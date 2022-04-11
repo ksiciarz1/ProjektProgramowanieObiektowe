@@ -4,39 +4,33 @@ using System.Linq;
 
 namespace ProjektProgramowanieObiektowe
 {
+
+    /// <summary>
+    /// Class representing Library Database
+    /// </summary>
     class LibraryContext : DbContext
     {
         public DbSet<Liblarian> Librarians { get; set; }
 
         public string DbPath { get; }
 
+        /// <summary>
+        /// Creating data from Database
+        /// </summary>
         public LibraryContext()
+            : base()
         {
-            //var folder = Environment.SpecialFolder.LocalApplicationData;
-            //var path = Environment.GetFolderPath(folder);
-            //DbPath = System.IO.Path.Join(path, "Library.db");
-
             string folder = Environment.CurrentDirectory;
-
             DbPath = System.IO.Path.Join(folder, "Library.db");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlite($"Data Source={DbPath}");
 
-
-        public string TestRead()
-        {
-            var liblarian = Librarians
-                .OrderBy(x => x.Id)
-                .First();
-
-            if (liblarian == null)
-                return "Null";
-
-            return liblarian.FullName;
-        }
     }
 
+    /// <summary>
+    /// Class with Liblarian data structure
+    /// </summary>
     public class Liblarian
     {
         public int Id { get; set; }
@@ -44,4 +38,6 @@ namespace ProjektProgramowanieObiektowe
         public string Login { get; set; }
         public string Password { get; set; }
     }
+
+    // TODO: Make structures for other datas
 }
