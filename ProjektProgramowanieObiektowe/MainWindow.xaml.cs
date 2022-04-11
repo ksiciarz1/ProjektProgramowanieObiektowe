@@ -23,6 +23,7 @@ namespace ProjektProgramowanieObiektowe
 
         }
 
+
         /// <summary>
         /// Refreshes data from database
         /// </summary>
@@ -34,7 +35,22 @@ namespace ProjektProgramowanieObiektowe
             foreach (ListBox listbox in listBoxes)
                 listbox.Items.Clear();
 
-            var books = database.Books.ToArray();
+            #region Filters
+
+            string idFilter = TextBox1.Text.Trim();
+            string nameFilter = TextBox2.Text.Trim();
+            string authorFilter = TextBox3.Text.Trim();
+
+            #endregion
+
+            // Getting data from database with filtering
+            var books = database.Books.Where(book =>
+                 book.Id.ToString().Contains(idFilter) &&
+                 book.Name.Contains(nameFilter) &&
+                 book.Author.Contains(authorFilter)
+                ).ToArray();
+
+            // Displaying data in ListBoxes
             foreach (Book book in books)
             {
                 ListBoxItem listBoxId = new ListBoxItem();
@@ -75,6 +91,12 @@ namespace ProjektProgramowanieObiektowe
                     listBoxes[j].SelectionChanged += Lisbox_SelectionChanged;
                 }
             }
+        }
+
+        // TODO: Find out if this is needed
+        private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            RefreshButton_Click(null, null);
         }
     }
 }
