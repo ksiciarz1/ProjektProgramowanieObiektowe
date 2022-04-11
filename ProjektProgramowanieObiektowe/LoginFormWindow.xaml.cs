@@ -35,5 +35,10 @@ namespace ProjektProgramowanieObiektowe
             mainWindow.Show();
             this.Close();
         }
+
+        private void ForgotButton_Click(object sender, RoutedEventArgs e)
+        {
+            ForgotButton.Content = new LibraryContext().TestRead();
+        }
     }
 }
