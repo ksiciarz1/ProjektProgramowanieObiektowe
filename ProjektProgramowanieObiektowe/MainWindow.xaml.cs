@@ -12,25 +12,20 @@ namespace ProjektProgramowanieObiektowe
     public partial class MainWindow : Window
     {
         LibraryContext database;
+        Window CurrentAboveWindow = null;
 
         public MainWindow()
         {
             InitializeComponent();
 
             // Getting data from server and displaying in ListBox1
-            RefreshButton_Click(null, null);
-
-            // HACK: To Delete
-            BookForm bookForm = new BookForm();
-            bookForm.Show();
-
+            RefreshDataFromDatabase();
         }
-
 
         /// <summary>
         /// Refreshes data from database
         /// </summary>
-        private void RefreshButton_Click(object? sender, RoutedEventArgs? e)
+        private void RefreshDataFromDatabase()
         {
             database = new LibraryContext();
 
@@ -59,10 +54,47 @@ namespace ProjektProgramowanieObiektowe
             mainDataGrid.DataContext = bookColection;
         }
 
-        // TODO: Find out if this is needed
+        public void WindowAboveClose(object sender, EventArgs e)
+        {
+            CurrentAboveWindow = null;
+        }
+
+        #region Button Events
+
+        private void RefreshButton_Click(object? sender, RoutedEventArgs? e)
+        {
+            RefreshDataFromDatabase();
+        }
+
+        // TODO: Find out if TextBox_SelectionChanged is needed
         private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            RefreshButton_Click(null, null);
+            RefreshDataFromDatabase();
         }
+
+        private void RentButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (CurrentAboveWindow == null)
+            {
+                CurrentAboveWindow = new RentForm();
+                CurrentAboveWindow.Show();
+                CurrentAboveWindow.Activate();
+                CurrentAboveWindow.Closed += WindowAboveClose;
+            }
+        }
+
+        private void ShowReadersButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentAboveWindow == null)
+            {
+                CurrentAboveWindow = new ShowReadersForm();
+                CurrentAboveWindow.Show();
+                CurrentAboveWindow.Activate();
+                CurrentAboveWindow.Closed += WindowAboveClose;
+            }
+        }
+
+        #endregion
+
     }
 }

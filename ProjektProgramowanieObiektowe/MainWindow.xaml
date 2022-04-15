@@ -12,12 +12,17 @@
             <RowDefinition Height="395*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="271*"/>
-            <ColumnDefinition Width="529*"/>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="339*"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="TextBox1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="39" Height="19" SelectionChanged="TextBox_SelectionChanged"/>
-        <TextBox x:Name="TextBox2" Grid.Column="1" HorizontalAlignment="Left" Margin="62,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" SelectionChanged="TextBox_SelectionChanged"/>
-        <TextBox x:Name="TextBox3" Grid.Column="1" HorizontalAlignment="Left" Margin="275,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="244" SelectionChanged="TextBox_SelectionChanged"/>
-        <DataGrid x:Name="mainDataGrid" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding}"/>
+        <TextBox x:Name="TextBox2" Grid.Column="1" HorizontalAlignment="Left" Margin="62,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" SelectionChanged="TextBox_SelectionChanged" Height="17"/>
+        <TextBox x:Name="TextBox3" Grid.Column="1" HorizontalAlignment="Left" Margin="275,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="244" SelectionChanged="TextBox_SelectionChanged" Height="17"/>
+        <DataGrid x:Name="mainDataGrid" Grid.Column="1" ItemsSource="{Binding}" Margin="0,39,0,0" Grid.RowSpan="2"/>
+        <Button Content="Rent" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Click="RentButton_Clicked"/>
+        <Button Content="Add Book" HorizontalAlignment="Center" Margin="0,54,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Add Reader" HorizontalAlignment="Center" Margin="0,84,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Show Readers" HorizontalAlignment="Center" Margin="0,114,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="ShowReadersButton_Click"/>
+        <Button Content="Show Rented" HorizontalAlignment="Center" Margin="0,144,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

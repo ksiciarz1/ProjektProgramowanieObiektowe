@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace ProjektProgramowanieObiektowe
 {
     /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
+    /// Logika interakcji dla klasy RentForm.xaml
     /// </summary>
-    public partial class BookForm : Window
+    public partial class RentForm : Window
     {
-        public BookForm()
+        public RentForm()
         {
             InitializeComponent();
-
-            ObservableCollection<Book> custData = new ObservableCollection<Book>();
-
-            Book book = new Book();
-            book.Name = "Dramat";
-            book.Author = "Adam Mickiewicz";
-            book.Category = "Dramat";
-            book.PublishingHouse = "Operon";
-
-            custData.Add(book);
-
-            mainDataGrid.DataContext = custData;
         }
     }
 }

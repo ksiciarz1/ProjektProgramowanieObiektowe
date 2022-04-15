@@ -53,5 +53,23 @@ namespace ProjektProgramowanieObiektowe
         public string? Other { get; set; }
     }
 
-    // TODO: Make structures for other data
+    /// <summary>
+    /// Class representing Reader data structure
+    /// </summary>
+    public class Reader // TODO: Make Reader in database
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? SurName { get; set; }
+    }
+
+    /// <summary>
+    /// Class representing Rent data structure
+    /// </summary>
+    public class Rent // TODO: Make Rent in database
+    {
+        public int Id { get; set; }
+        public int? BookId { get; set; }
+        public int? ReaderId { get; set; }
+    }
 }
