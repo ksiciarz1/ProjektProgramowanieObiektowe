@@ -12,6 +12,8 @@ namespace ProjektProgramowanieObiektowe
     {
         public DbSet<Liblarian> Librarians { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Reader> Readers { get; set; }
+        public DbSet<Rent> Rents { get; set; }
 
         public string DbPath { get; }
 
@@ -34,7 +36,7 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public class Liblarian
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string FullName { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
@@ -45,7 +47,7 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public class Book
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string? Name { get; set; }
         public string? Author { get; set; }
         public string? Category { get; set; }
@@ -56,9 +58,9 @@ namespace ProjektProgramowanieObiektowe
     /// <summary>
     /// Class representing Reader data structure
     /// </summary>
-    public class Reader // TODO: Make Reader in database
+    public class Reader
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string? Name { get; set; }
         public string? SurName { get; set; }
     }
@@ -68,7 +70,7 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public class Rent // TODO: Make Rent in database
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public int? BookId { get; set; }
         public int? ReaderId { get; set; }
     }

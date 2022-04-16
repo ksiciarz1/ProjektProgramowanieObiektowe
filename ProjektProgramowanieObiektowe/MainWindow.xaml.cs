@@ -12,7 +12,6 @@ namespace ProjektProgramowanieObiektowe
     public partial class MainWindow : Window
     {
         LibraryContext database;
-        Window CurrentAboveWindow = null;
 
         public MainWindow()
         {
@@ -22,9 +21,6 @@ namespace ProjektProgramowanieObiektowe
             RefreshDataFromDatabase();
         }
 
-        /// <summary>
-        /// Refreshes data from database
-        /// </summary>
         private void RefreshDataFromDatabase()
         {
             database = new LibraryContext();
@@ -37,7 +33,7 @@ namespace ProjektProgramowanieObiektowe
 
             #endregion
 
-            // Getting data from database with filtering
+            // Getting data from database with filters
             var books = database.Books.Where(book =>
                  book.Id.ToString().Contains(idFilter) &&
                  book.Name.Contains(nameFilter) &&
@@ -54,19 +50,13 @@ namespace ProjektProgramowanieObiektowe
             mainDataGrid.DataContext = bookColection;
         }
 
-        public void WindowAboveClose(object sender, EventArgs e)
-        {
-            CurrentAboveWindow = null;
-        }
-
         #region Button Events
 
-        private void RefreshButton_Click(object? sender, RoutedEventArgs? e)
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             RefreshDataFromDatabase();
         }
 
-        // TODO: Find out if TextBox_SelectionChanged is needed
         private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             RefreshDataFromDatabase();
@@ -74,24 +64,19 @@ namespace ProjektProgramowanieObiektowe
 
         private void RentButton_Clicked(object sender, RoutedEventArgs e)
         {
-            if (CurrentAboveWindow == null)
-            {
-                CurrentAboveWindow = new RentForm();
-                CurrentAboveWindow.Show();
-                CurrentAboveWindow.Activate();
-                CurrentAboveWindow.Closed += WindowAboveClose;
-            }
+            RentForm temp = new RentForm();
+            temp.ShowDialog();
         }
 
         private void ShowReadersButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentAboveWindow == null)
-            {
-                CurrentAboveWindow = new ShowReadersForm();
-                CurrentAboveWindow.Show();
-                CurrentAboveWindow.Activate();
-                CurrentAboveWindow.Closed += WindowAboveClose;
-            }
+            ShowReadersForm temp = new ShowReadersForm();
+            temp.ShowDialog();
+        }
+        private void AddReaderButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddReadersForm temp = new AddReadersForm();
+            temp.ShowDialog();
         }
 
         #endregion

@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektProgramowanieObiektowe"
         mc:Ignorable="d"
-        Title="ShowReadersForm" Height="450" Width="800">
+        Title="ShowReadersForm" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="215,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBox2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="TextBox3" HorizontalAlignment="Left" Margin="465,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" RenderTransformOrigin="-0.37,0.377"/>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding}"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="215,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="TextBox2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="TextBox3" HorizontalAlignment="Left" Margin="465,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" RenderTransformOrigin="-0.37,0.377"/>
+        <DataGrid x:Name="mainDataGrid" Grid.Row="1" ItemsSource="{Binding}"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="74,24,0,0" VerticalAlignment="Top" Click="RefreshButton_Click"/>
+        <Button Content="Add Reader" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Center" Click="AddReadersButton_Click"/>
 
     </Grid>
 </Window>

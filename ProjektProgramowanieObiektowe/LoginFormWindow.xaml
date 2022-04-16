@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektProgramowanieObiektowe"
         mc:Ignorable="d"
-        Title="Liblary Login Window" d:DesignHeight="161.729" Width="407" Height="160" WindowStyle="ToolWindow">
+        Title="Liblary Login Window" d:DesignHeight="161.729" Width="407" Height="160" WindowStyle="ToolWindow"
+        ResizeMode="NoResize">
     <Grid HorizontalAlignment="Center" Width="407">
         <Grid.RowDefinitions>
             <RowDefinition Height="87*"/>
