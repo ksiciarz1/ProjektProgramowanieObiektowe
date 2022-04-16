@@ -32,6 +32,7 @@ namespace ProjektProgramowanieObiektowe
                 Name = NameTextBox.Text,
                 SurName = NameTextBox.Text,
             });
+            database.SaveChanges();
 
             MessageBoxResult result = MessageBox.Show("Added reader!");
         }

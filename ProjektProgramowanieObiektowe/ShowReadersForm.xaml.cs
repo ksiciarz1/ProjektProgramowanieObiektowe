@@ -67,5 +67,10 @@ namespace ProjektProgramowanieObiektowe
             AddReadersForm temp = new AddReadersForm();
             temp.ShowDialog();
         }
+
+        private void TextBoxSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            RefreshDataFromDatabase();
+        }
     }
 }

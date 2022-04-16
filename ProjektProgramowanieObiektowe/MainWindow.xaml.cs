@@ -60,7 +60,7 @@ namespace ProjektProgramowanieObiektowe
         {
             RefreshDataFromDatabase();
         }
-        private void RentButton_Clicked(object sender, RoutedEventArgs e)
+        private void AddRentButton_Clicked(object sender, RoutedEventArgs e)
         {
             AddRentForm temp = new AddRentForm();
             temp.ShowDialog();
@@ -78,6 +78,11 @@ namespace ProjektProgramowanieObiektowe
         private void AddBookButton_Click(object sender, RoutedEventArgs e)
         {
             AddBookForm temp = new AddBookForm();
+            temp.ShowDialog();
+        }
+        private void ShowRentedButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowRentedForm temp = new ShowRentedForm();
             temp.ShowDialog();
         }
 
