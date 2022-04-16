@@ -26,15 +26,17 @@ namespace ProjektProgramowanieObiektowe
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Book temp = new Book();
-            temp.Name = NameTextBox.Text;
-            temp.Author = AuthorTextBox.Text;
-            temp.Category = CategoryTextBox.Text;
-            temp.PublishingHouse = PublishingHouseTextBox.Text;
+            LibraryContext database = new LibraryContext();
+            database.Add(new Book
+            {
+                Name = NameTextBox.Text,
+                Author = AuthorTextBox.Text,
+                Category = CategoryTextBox.Text,
+                PublishingHouse = PublishingHouseTextBox.Text
+            });
+            database.SaveChanges();
 
-            // TODO: Adding to database
-
-            MessageBoxResult result = MessageBox.Show("Added reader!");
+            MessageBoxResult result = MessageBox.Show("Book Added!");
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

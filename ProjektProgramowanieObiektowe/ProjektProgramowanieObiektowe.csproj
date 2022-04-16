@@ -34,7 +34,7 @@
       <LastGenOutput>Library.Context.cs</LastGenOutput>
     </None>
     <None Update="Library.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

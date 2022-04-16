@@ -26,11 +26,12 @@ namespace ProjektProgramowanieObiektowe
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Reader temp = new Reader();
-            temp.Name = NameTextBox.Text;
-            temp.SurName = SurNameTextBox.Text;
-
-            // TODO: Adding to database
+            LibraryContext database = new LibraryContext();
+            database.Add(new Reader
+            {
+                Name = NameTextBox.Text,
+                SurName = NameTextBox.Text,
+            });
 
             MessageBoxResult result = MessageBox.Show("Added reader!");
         }

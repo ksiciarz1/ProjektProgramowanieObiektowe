@@ -56,18 +56,15 @@ namespace ProjektProgramowanieObiektowe
         {
             RefreshDataFromDatabase();
         }
-
         private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             RefreshDataFromDatabase();
         }
-
         private void RentButton_Clicked(object sender, RoutedEventArgs e)
         {
-            RentForm temp = new RentForm();
+            AddRentForm temp = new AddRentForm();
             temp.ShowDialog();
         }
-
         private void ShowReadersButton_Click(object sender, RoutedEventArgs e)
         {
             ShowReadersForm temp = new ShowReadersForm();
@@ -76,6 +73,11 @@ namespace ProjektProgramowanieObiektowe
         private void AddReaderButton_Click(object sender, RoutedEventArgs e)
         {
             AddReadersForm temp = new AddReadersForm();
+            temp.ShowDialog();
+        }
+        private void AddBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddBookForm temp = new AddBookForm();
             temp.ShowDialog();
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektProgramowanieObiektowe"
         mc:Ignorable="d"
-        Title="AddBookForm" Height="177" Width="257"
+        Title="AddBookForm" Height="202" Width="257"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
