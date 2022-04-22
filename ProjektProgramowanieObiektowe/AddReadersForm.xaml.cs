@@ -30,7 +30,7 @@ namespace ProjektProgramowanieObiektowe
             database.Add(new Reader
             {
                 Name = NameTextBox.Text,
-                SurName = NameTextBox.Text,
+                Surname = NameTextBox.Text,
             });
             database.SaveChanges();
 

@@ -31,7 +31,7 @@ namespace ProjektProgramowanieObiektowe
             foreach (Reader reader in readersArray)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Content = $"{reader.Id}: {reader.Name} {reader.SurName}";
+                item.Content = $"{reader.Id}: {reader.Name} {reader.Surname}";
                 ReaderComboBox.Items.Add(item);
             }
 

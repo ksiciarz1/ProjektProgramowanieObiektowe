@@ -21,12 +21,17 @@ namespace ProjektProgramowanieObiektowe
             RefreshDataFromDatabase();
         }
 
+        /// <summary>
+        /// Getting data from database and showing it in mainDataGrid
+        /// </summary>
         private void RefreshDataFromDatabase()
         {
+            // Creating Database
             database = new LibraryContext();
 
             #region Filters
 
+            // Setting filters from textboxes
             string idFilter = TextBox1.Text.Trim();
             string nameFilter = TextBox2.Text.Trim();
             string authorFilter = TextBox3.Text.Trim();
@@ -34,20 +39,14 @@ namespace ProjektProgramowanieObiektowe
             #endregion
 
             // Getting data from database with filters
-            var books = database.Books.Where(book =>
-                 book.Id.ToString().Contains(idFilter) &&
-                 book.Name.Contains(nameFilter) &&
-                 book.Author.Contains(authorFilter)
-                ).ToArray();
+            ObservableCollection<Book> bookCollection = new ObservableCollection<Book>(
+                database.Books.Where(book =>
+                    book.Id.ToString().Contains(idFilter)
+                    && book.Name.Contains(nameFilter)
+                    && book.Author.Contains(authorFilter)
+                    ));
 
-            ObservableCollection<Book> bookColection = new();
-
-            // Displaying data in ListBoxes
-            foreach (Book book in books)
-            {
-                bookColection.Add(book);
-            }
-            mainDataGrid.DataContext = bookColection;
+            mainDataGrid.DataContext = bookCollection;
         }
 
         #region Button Events

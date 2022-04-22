@@ -30,30 +30,26 @@ namespace ProjektProgramowanieObiektowe
 
         public void RefreshDataFromDatabase()
         {
+            // Creating Database
             database = new LibraryContext();
 
             #region Filters
 
+            // Setting filters from textboxes
             string idFilter = TextBox1.Text.Trim();
             string nameFilter = TextBox2.Text.Trim();
-            string surNameFilter = TextBox3.Text.Trim();
+            string surnameFilter = TextBox3.Text.Trim();
 
             #endregion
 
             // Getting data from database with filters
-            var readers = database.Readers.Where(reader =>
-                 reader.Id.ToString().Contains(idFilter) &&
-                 reader.Name.Contains(nameFilter) &&
-                 reader.SurName.Contains(surNameFilter)
-                ).ToArray();
+            ObservableCollection<Reader> readerCollection = new ObservableCollection<Reader>(
+                database.Readers.Where(reader =>
+                    reader.Id.ToString().Contains(idFilter)
+                    && reader.Name.Contains(nameFilter)
+                    && reader.Surname.Contains(surnameFilter)
+                    ));
 
-            ObservableCollection<Reader> readerCollection = new();
-
-            // Displaying data in ListBoxes
-            foreach (Reader reader in readers)
-            {
-                readerCollection.Add(reader);
-            }
             mainDataGrid.DataContext = readerCollection;
         }
 
