@@ -19,6 +19,7 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public partial class AddBookForm : Window
     {
+        public MainWindow mainWindow;
         public AddBookForm()
         {
             InitializeComponent();
@@ -35,6 +36,8 @@ namespace ProjektProgramowanieObiektowe
                 PublishingHouse = PublishingHouseTextBox.Text
             });
             database.SaveChanges();
+
+            mainWindow.RefreshDataFromDatabase();
 
             MessageBoxResult result = MessageBox.Show("Book Added!");
         }

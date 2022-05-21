@@ -20,6 +20,8 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public partial class ShowReadersForm : Window
     {
+        public MainWindow mainWindow;
+        ObservableCollection<Reader> readerCollection;
         LibraryContext database;
 
         public ShowReadersForm()
@@ -43,12 +45,12 @@ namespace ProjektProgramowanieObiektowe
             #endregion
 
             // Getting data from database with filters
-            ObservableCollection<Reader> readerCollection = new ObservableCollection<Reader>(
-                database.Readers.Where(reader =>
-                    reader.Id.ToString().Contains(idFilter)
-                    && reader.Name.Contains(nameFilter)
-                    && reader.Surname.Contains(surnameFilter)
-                    ));
+            readerCollection = new ObservableCollection<Reader>(
+               database.Readers.Where(reader =>
+                   reader.Id.ToString().Contains(idFilter)
+                   && reader.Name.Contains(nameFilter)
+                   && reader.Surname.Contains(surnameFilter)
+                   ));
 
             mainDataGrid.DataContext = readerCollection;
         }
@@ -58,9 +60,25 @@ namespace ProjektProgramowanieObiektowe
             RefreshDataFromDatabase();
         }
 
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteSelected();
+        }
+
+        private void DeleteSelected()
+        {
+            if (mainDataGrid.SelectedIndex != -1)
+            {
+                database.Readers.Remove(readerCollection.ElementAt(mainDataGrid.SelectedIndex));
+                database.SaveChanges();
+                RefreshDataFromDatabase();
+            }
+        }
+
         private void AddReadersButton_Click(object sender, RoutedEventArgs e)
         {
             AddReadersForm temp = new AddReadersForm();
+            temp.readerForm = this;
             temp.ShowDialog();
         }
 

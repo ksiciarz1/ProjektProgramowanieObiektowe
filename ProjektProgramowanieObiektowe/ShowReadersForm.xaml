@@ -16,8 +16,9 @@
         <TextBox x:Name="TextBox2" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" SelectionChanged="TextBoxSelectionChanged"/>
         <TextBox x:Name="TextBox3" HorizontalAlignment="Left" Margin="465,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" RenderTransformOrigin="-0.37,0.377" SelectionChanged="TextBoxSelectionChanged"/>
         <DataGrid x:Name="mainDataGrid" Grid.Row="1" ItemsSource="{Binding}"/>
-        <Button Content="Refresh" HorizontalAlignment="Left" Margin="74,24,0,0" VerticalAlignment="Top" Click="RefreshButton_Click"/>
-        <Button Content="Add Reader" HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Center" Click="AddReadersButton_Click"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Margin="8,24,0,0" VerticalAlignment="Top" Click="RefreshButton_Click"/>
+        <Button Content="Add Reader" HorizontalAlignment="Left" Margin="64,24,0,0" VerticalAlignment="Top" Click="AddReadersButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="148,24,0,0" VerticalAlignment="Top" Width="49" Click="DeleteButton_Click"/>
 
     </Grid>
 </Window>

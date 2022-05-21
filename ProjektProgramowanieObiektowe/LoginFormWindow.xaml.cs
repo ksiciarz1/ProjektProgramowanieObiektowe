@@ -49,13 +49,15 @@ namespace ProjektProgramowanieObiektowe
             }
         }
 
-        // TODO: implement Forgot Password Button
+
         private void ForgotButton_Click(object sender, RoutedEventArgs e)
         {
             // HACK: Delete Forget Password Hack
 
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+
+            // END
             this.Close();
         }
     }

@@ -19,7 +19,7 @@
         <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Center" Click="LoginButton_CLick" Height="30" Width="170" Grid.Row="1" Grid.ColumnSpan="2" Margin="13,0,0,0"/>
         <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="206" Grid.Column="1" Height="18" Margin="0,52,0,0"/>
         <TextBox x:Name="LoginTextBox" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="18" Margin="0,16,0,0"/>
-        <Button x:Name="ForgotButton" Grid.Column="1" Content="Forgot Password" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="30" Click="ForgotButton_Click" Margin="0,0,13,0"/>
+        <Button x:Name="CancelButton" Grid.Column="1" Content="Cancel" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="30" Click="ForgotButton_Click" Margin="0,0,13,0"/>
         <Label Content="Login: " HorizontalAlignment="Right" VerticalAlignment="Top" Width="96" Height="26" Margin="0,16,0,0"/>
         <Label Content="Password: " HorizontalAlignment="Right" VerticalAlignment="Top" Width="96" Height="26" Margin="0,48,0,0"/>
     </Grid>

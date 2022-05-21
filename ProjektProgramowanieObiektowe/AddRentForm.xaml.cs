@@ -19,6 +19,9 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public partial class AddRentForm : Window
     {
+        public MainWindow mainWindow;
+        public ShowRentedForm rentedForm;
+
         public AddRentForm()
         {
             InitializeComponent();
@@ -62,6 +65,11 @@ namespace ProjektProgramowanieObiektowe
                     ReaderId = readerId,
                 });
                 database.SaveChanges();
+
+                if (rentedForm != null)
+                    rentedForm.RefreshDataFromDatabase();
+                if (mainWindow != null)
+                    mainWindow.RefreshDataFromDatabase();
 
                 MessageBoxResult result = MessageBox.Show("Rent Added!");
             }

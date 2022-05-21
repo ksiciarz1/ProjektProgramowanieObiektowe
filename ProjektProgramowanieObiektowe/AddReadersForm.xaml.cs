@@ -19,6 +19,8 @@ namespace ProjektProgramowanieObiektowe
     /// </summary>
     public partial class AddReadersForm : Window
     {
+        public MainWindow mainWindow;
+        public ShowReadersForm readerForm;
         public AddReadersForm()
         {
             InitializeComponent();
@@ -33,6 +35,11 @@ namespace ProjektProgramowanieObiektowe
                 Surname = NameTextBox.Text,
             });
             database.SaveChanges();
+
+            if (mainWindow != null)
+                mainWindow.RefreshDataFromDatabase();
+            if (readerForm != null)
+                readerForm.RefreshDataFromDatabase();
 
             MessageBoxResult result = MessageBox.Show("Added reader!");
         }
