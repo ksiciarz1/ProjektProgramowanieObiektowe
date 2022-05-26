@@ -53,6 +53,22 @@ namespace ProjektProgramowanieObiektowe
 
             mainDataGrid.DataContext = rentCollection;
         }
+        private void DeleteSelected()
+        {
+            if (mainDataGrid.SelectedIndex != -1)
+            {
+                database.Rents.Remove(rentCollection.ElementAt(mainDataGrid.SelectedIndex));
+                database.SaveChanges();
+                RefreshDataFromDatabase();
+            }
+        }
+
+        private void TextBoxSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            RefreshDataFromDatabase();
+        }
+
+        #region Button events
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
@@ -64,15 +80,6 @@ namespace ProjektProgramowanieObiektowe
             DeleteSelected();
         }
 
-        private void DeleteSelected()
-        {
-            if (mainDataGrid.SelectedIndex != -1)
-            {
-                database.Rents.Remove(rentCollection.ElementAt(mainDataGrid.SelectedIndex));
-                database.SaveChanges();
-                RefreshDataFromDatabase();
-            }
-        }
 
         private void AddRentedButton_Click(object sender, RoutedEventArgs e)
         {
@@ -81,9 +88,6 @@ namespace ProjektProgramowanieObiektowe
             temp.ShowDialog();
         }
 
-        private void TextBoxSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            RefreshDataFromDatabase();
-        }
+        #endregion
     }
 }
